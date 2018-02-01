@@ -1,5 +1,5 @@
-﻿/**
- * Created by Yuri2 on 2017/7/10.
+/**
+ * Rewrited by Sherry on 2018/2/1.
  */
 window.Win10 = {
     _version:'v1.1.2.4',
@@ -457,9 +457,10 @@ window.Win10 = {
         //设置默认右键菜单
         Win10.setContextMenu('#win10',true);
         Win10.setContextMenu('#win10>.desktop',[
+            ['<i class="fa fa-fw fa-info-circle"></i> '+Win10.lang('刷新','Refresh'),function () {Win10.renderShortcuts()}],'|',
             ['<i class="fa fa-fw fa-window-maximize"></i> '+Win10.lang('进入全屏','Enable Full Screen'),function () {Win10.enableFullScreen()}],
             ['<i class="fa fa-fw fa-window-restore"></i> '+Win10.lang('退出全屏','Disable Full Screen'),function () {Win10.disableFullScreen()}],
-            ['<div class="win10-open-window" data-url="./plugins/theme_switcher/theme_switcher.html">'+'<i class="fa fa-fw fa-window-restore"></i> '+Win10.lang('背景设置','Set Background')+'</div>'],
+            ['<div class="win10-open-window" data-url="./plugins/theme_switcher/theme_switcher.html">'+'<i class="fa fa-fw fa-window-maximize"></i> '+Win10.lang('背景设置','Set Background')+'</div>'],
             ['<i class="fa fa-fw fa-star"></i> 收藏本页',function () {
                 var url = window.location;
                 var title = document.title;
@@ -484,8 +485,6 @@ window.Win10 = {
                     layer.alert(Win10.lang('您的浏览器不支持,请按 Ctrl+D 手动收藏!','Your browser does not support, please press Ctrl+D to manual collection!'));
                 }
             }],
-            '|',
-            ['<i class="fa fa-fw fa-info-circle"></i> '+Win10.lang('关于','About Us'),function () {Win10.aboutUs()}],
         ]);
         Win10.setContextMenu('#win10_btn_group_middle',[
             ['<i class="fa fa-fw fa-window-maximize"></i> '+Win10.lang('全部显示','Show All Windows'),function () {Win10.showWins()}],
